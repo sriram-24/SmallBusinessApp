@@ -1,21 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './Components/Home';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
+import Store from './Components/Store';
+import Whishlist from './Components/Whishlist';
+import Profile from './Components/Profile';
+import { NavigationContainer } from '@react-navigation/native';
+import { AntDesign } from '@expo/vector-icons'; 
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
+const Tab = createMaterialBottomTabNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer >
+      <Tab.Navigator initialRouteName={Home} barStyle={styles.Tab} >
+        <Tab.Screen name="Home" component={Home} options={
+          {
+            tabBarLabel:"Home",
+            tabBarIcon:({color})=>(
+              <AntDesign name="home" size={24} color={color} />
+            )
+          }
+        } />
+        <Tab.Screen name="Store" component={Store} options={{
+          tabBarLabel:"Store",
+          tabBarIcon:({color})=>(
+            <FontAwesome5 name="store" size={20} color={color} />
+          )
+        }} />
+        <Tab.Screen name="Cart" component={Whishlist} options={{
+          tabBarLabel:"Cart",
+          tabBarIcon:({color})=>(
+            <Feather name="shopping-cart" size={24} color={color} />
+          )
+        }} />
+        <Tab.Screen name="Profile" component={Profile} options={{
+          tabBarLabel:"Profile",
+          tabBarIcon:({color})=>(
+            <Feather name="user" size={24} color={color} />
+          )
+        }} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const styles=StyleSheet.create({
+  Tab:{
+    backgroundColor:'#0e6cff'
+  }
 });
