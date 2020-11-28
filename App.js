@@ -1,20 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, } from 'react-native';
 import Home from './Components/Home';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import Store from './Components/Store';
 import Whishlist from './Components/Whishlist';
 import Profile from './Components/Profile';
 import { NavigationContainer } from '@react-navigation/native';
-import { AntDesign } from '@expo/vector-icons'; 
-import { FontAwesome5 } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
+import { AntDesign, FontAwesome5, Feather } from '@expo/vector-icons'; 
 
 const Tab = createMaterialBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer >
-      <Tab.Navigator initialRouteName={Home} barStyle={styles.Tab} >
+      <Tab.Navigator initialRouteName={Home} barStyle={styles.Tab}  >
         <Tab.Screen name="Home" component={Home} options={
           {
             tabBarLabel:"Home",
@@ -51,3 +49,5 @@ const styles=StyleSheet.create({
     backgroundColor:'#0e6cff'
   }
 });
+
+// #211F47

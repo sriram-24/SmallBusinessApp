@@ -1,21 +1,36 @@
 import React, { useState } from 'react';
-import {View,Text, StyleSheet, TextInput, ImageBackground, Alert, TouchableOpacity,Button} from 'react-native';
+import {View,Text, StyleSheet, TextInput, ImageBackground, Alert, TouchableOpacity} from 'react-native';
 import Firebase from '../firebaseConfig';
-import Login from './Login';
 
-const Register = () =>{
+const CreateDocumentForUser = (userCredentials) => {
+    const database = Firebase.firestore()
+    const userDocument = database.collection('users').doc(userCredentials.uid);
+    const userData = {
+        name: userCredentials.displayName,
+        email: userCredentials.email,
+        phoneNumber: userCredentials.phoneNumber,
+        photoUrl: userCredentials.photoURL,
+    }
+
+    const documentStatus = userDocument.set(userData);
+    console.log(documentStatus);
+}
+
+const Register = ({navigation}) =>{
+
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
+
     userSignUp=()=>{
         Firebase.auth().createUserWithEmailAndPassword(email,password)
         .then((user)=>{
-            Alert.alert("user created sucessfully");
-            setEmail('');
-            setPassword('');
-            
+            CreateDocumentForUser(user.user);
+            Alert.alert("user created sucessfully")
+            navigation.navigate("Profile")
         })
         .catch((error)=>{
             Alert.alert(error.message);
+            console.log(error);
         })
     }
     
@@ -52,7 +67,8 @@ const Register = () =>{
 
 const styles=StyleSheet.create({
     container:{
-     display:"flex",  
+        backgroundColor: '#fff',
+        flex:1,  
     },
     title:{
         textAlign:"center",
