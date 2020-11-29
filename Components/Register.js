@@ -16,7 +16,7 @@ const CreateDocumentForUser = (userCredentials) => {
     console.log(documentStatus);
 }
 
-const Register = ({navigation}) =>{
+const Register = () =>{
 
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
@@ -25,8 +25,7 @@ const Register = ({navigation}) =>{
         Firebase.auth().createUserWithEmailAndPassword(email,password)
         .then((user)=>{
             CreateDocumentForUser(user.user);
-            Alert.alert("user created sucessfully")
-            navigation.navigate("Profile")
+            Alert.alert("user created sucessfully");
         })
         .catch((error)=>{
             Alert.alert(error.message);

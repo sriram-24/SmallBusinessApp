@@ -3,28 +3,20 @@ import { View, Text, Button} from 'react-native';
 import Firebase from '../firebaseConfig';
 
 import LoginOrRegister from './LoginOrRegister';
+import ProfileDetails from './ProfileDetails';
 
 
-const Profile = ({navigation}) => {
+const Profile = () => {
     const [userLoginState, setUserLoginState] = useState(null);
     useEffect(()=>{
         const isUserLoggedIn = Firebase.auth().currentUser;
         setUserLoginState(isUserLoggedIn);
         console.log(isUserLoggedIn);
-        
     })
 
-    const signOutUser = () =>{
-        Firebase.auth().signOut().then((res)=>{
-            setUserLoginState(null);
-            navigation.navigate("Profile");
-        })
-    }
     if(userLoginState!==null){
         return(
-            <View style={{top:200}}>
-                <Button title="Sign out" onPress={signOutUser}  />
-            </View>
+            <ProfileDetails userLoginState={userLoginState} setUserLoginState={setUserLoginState} />
         )
     }
     else{

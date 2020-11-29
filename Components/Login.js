@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
-import {View, Text, ImageBackground, StyleSheet, TextInput, Button} from 'react-native';
+import {View, Text, ImageBackground, StyleSheet, TextInput, Button, Alert} from 'react-native';
+import Firebase from '../firebaseConfig';
 
 const Login = () => {
     const [email,setEmail] = useState(null);
     const [password, setPassword] = useState(null);
+    const userSignIn = () =>{
+        Firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((user) => {
+            Alert.alert("Login sucess");
+        })
+        .catch((error) => {
+            Alert.alert(error.message)
+        })
+    }
     return(
         <View style={styles.container}>
             <ImageBackground source={require('../assets/user_signin.png')} style={styles.image}>
@@ -25,7 +35,7 @@ const Login = () => {
                             setPassword(value)
                         }}
                     />
-                    <Button title="Login" color="#0e6cff" />
+                    <Button title="Login" color="#0e6cff" onPress={userSignIn} />
                 </View>
             </ImageBackground>
         </View>
