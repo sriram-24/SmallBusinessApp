@@ -1,9 +1,23 @@
 import React from 'react';
-import { View, StyleSheet, Text, ScrollView, FlatList } from 'react-native';
+import { View, StyleSheet, Text, ScrollView, FlatList, Image } from 'react-native';
 import Firebase from '../firebaseConfig';
 import { Avatar, Title, Subheading, Paragraph, Caption, Button } from 'react-native-paper';
 
 const ProfileDetails = ({setUserLoginState}) => {
+    let productImagesArray = [
+        {
+            image: require("../assets/SampleProducts/macbook_pro.jpg")
+        },
+        {
+            image: require("../assets/SampleProducts/shirt.jpg")
+        },
+        {
+            image: require("../assets/SampleProducts/red_hoodie.jpg")
+        },
+        {
+            image: require("../assets/SampleProducts/marshmallow_hoodie.jpg")
+        }
+    ]
        
     const signOutUser = () => {
         Firebase.auth().signOut().then((res) => {
@@ -24,13 +38,22 @@ const ProfileDetails = ({setUserLoginState}) => {
                 <Subheading>username</Subheading>
                 <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
                 <Caption>12, jhon Doe street, chennai, Tamil Nadu, India </Caption>
-                <Button style={styles.editprofile}>Edit profile</Button>
+                <Button icon="account-edit" style={styles.editprofile}>Edit profile</Button>
             </View>
             <Text style={styles.productGalleryTopic}>PRODUCT GALLERY</Text>
             <View style={styles.gallery}>
-                <FlatList numColumns={3} style={styles.galleryList} />
+                <FlatList
+                    numColumns={2} 
+                    style={styles.galleryList} 
+                    data={productImagesArray} 
+                    renderItem={({item})=>{
+                        return <Image source={item.image} style={styles.listImage} />
+                    }}
+                />
+                <Button icon="plus" onPress={()=>console.log("Add product pressed")}>Add product</Button>
             </View>
-            <Button onPress={signOutUser} style={styles.signout} >SIGN OUT</Button>
+
+            <Button icon="exit-to-app" onPress={signOutUser} style={styles.signout} >SIGN OUT</Button>
             
         </ScrollView>
     );
@@ -90,7 +113,13 @@ const styles = StyleSheet.create({
         padding:10
     },
     galleryList:{
-        
+        padding:5
+    },
+    listImage:{
+        height:175,
+        width:175,
+        marginRight:2,
+        marginBottom:2
     }
 });
 
