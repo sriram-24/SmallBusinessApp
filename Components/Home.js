@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Button, Image } from 'react-native'
 import {IconButton, Colors} from "react-native-paper";
+
 class Home extends Component {
     showNotifications(){
         console.log("This is notification");
@@ -28,13 +29,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
     },
-    title:{
-        top:70,
-        fontSize:25
+    title: {
+        top: 70,
+        fontSize: 25
     },
-    bellIcon:{
-        top:34,
-        left:130
+    bellIcon: {
+        top: 34,
+        left: 130
     }
 });
 

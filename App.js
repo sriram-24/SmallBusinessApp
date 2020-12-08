@@ -46,7 +46,7 @@ export default function App() {
 
 const styles=StyleSheet.create({
   Tab:{
-    backgroundColor:'#0e6cff'
+    backgroundColor:'#211F47'
   }
 });
 

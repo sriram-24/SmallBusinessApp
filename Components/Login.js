@@ -30,6 +30,7 @@ const Login = () => {
                     <TextInput
                         style={styles.textinput}
                         placeholder="Enter your password"
+                        secureTextEntry={true}
                         value = {password}
                         onChangeText = {(value) =>{
                             setPassword(value)

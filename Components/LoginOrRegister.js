@@ -15,7 +15,6 @@ function DisplayOptions({navigation}){
             </View>
             <ImageBackground source={require('../assets/auth_options_bg.png')} style={styles.image} >
                 <View style={styles.bg}>
-
                 </View>
             </ImageBackground>
         </View>
@@ -25,10 +24,43 @@ function DisplayOptions({navigation}){
 const LoginOrRegister = () => {
     const Stack = createStackNavigator();
     return(
-        <Stack.Navigator initialRouteName={DisplayOptions}>
-            <Stack.Screen name="Authentication" component={DisplayOptions} />
-            <Stack.Screen name="Register" component={Register} />
-            <Stack.Screen name="Login" component={Login} />
+        <Stack.Navigator initialRouteName={DisplayOptions} >
+            <Stack.Screen
+                name="Authentication"
+                component={DisplayOptions}
+                options={
+                    {
+                        headerStyle: {
+                            backgroundColor:'#211F47'
+                        },
+                        headerTintColor:'#fff'
+                    }
+                } 
+            />
+            <Stack.Screen
+                name="Register"
+                component={Register}
+                options={
+                    {
+                        headerStyle: {
+                            backgroundColor: '#211F47'
+                        },
+                        headerTintColor: '#fff'
+                    }
+                } 
+            />
+            <Stack.Screen
+                name="Login"
+                component={Login}
+                options={
+                    {
+                        headerStyle: {
+                            backgroundColor: '#211F47'
+                        },
+                        headerTintColor: '#fff'
+                    }
+                } 
+            />
         </Stack.Navigator>
     );
 }
