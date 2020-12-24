@@ -36,9 +36,10 @@ You can also:
 ### Tech
 SmallBussinessAPP uses a number of open source projects to work properly:
 
-* [React-native] - HTML enhanced for Mbile apps!
+* [React-native] - HTML enhanced for Mobile apps!
 * [markdown-it] - Markdown parser done right. Fast and easy to extend.
-* [Google Firebase] - Database for the customers and vendors
+* [Google Firebase] - Database for the customers and vendors.
+* [Expo] -           used as the sdk.
 
 
 
