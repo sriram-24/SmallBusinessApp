@@ -1,12 +1,9 @@
 import React from 'react';
 import { StyleSheet, } from 'react-native';
-import Home from './Components/Home';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
-import Store from './Components/Store';
-import Whishlist from './Components/Whishlist';
-import Profile from './Components/Profile';
 import { NavigationContainer } from '@react-navigation/native';
 import { AntDesign, FontAwesome5, Feather } from '@expo/vector-icons'; 
+import {Home,Profile,Store,Whishlist} from './src/Components'
 
 const Tab = createMaterialBottomTabNavigator();
 export default function App() {

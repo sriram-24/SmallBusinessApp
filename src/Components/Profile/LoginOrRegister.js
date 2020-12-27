@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack'
 import Register from './Register';
 import Login from './Login';
 import {MainStyles} from '../../Styles'
+import ProfileDetails from './ProfileDetails';
 
 function DisplayOptions({navigation}){
     return(
@@ -61,6 +62,18 @@ const LoginOrRegister = () => {
                         headerTintColor: '#fff'
                     }
                 } 
+            />
+            <Stack.Screen
+                name="Profile"
+                component={ProfileDetails}
+                options={
+                    {
+                        headerStyle: {
+                            backgroundColor: '#211F47'
+                        },
+                        headerTintColor: '#fff'
+                    }
+                }
             />
         </Stack.Navigator>
     );

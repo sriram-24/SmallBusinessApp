@@ -6,14 +6,16 @@ const Login = () => {
     const [email,setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const userSignIn = () =>{
-        Firebase.auth().signInWithEmailAndPassword(email, password)
+       return Firebase.auth().signInWithEmailAndPassword(email, password)
         .then((user) => {
             Alert.alert("Login sucess");
+            return user;
         })
         .catch((error) => {
             Alert.alert(error.message)
         })
     }
+    
     return(
         <View style={Loginstyles.container}>
             <ImageBackground source={require('../../../assets/user_signin.png')} style={Loginstyles.image}>
@@ -36,7 +38,7 @@ const Login = () => {
                             setPassword(value)
                         }}
                     />
-                    <Button title="Login" color="#0e6cff" onPress={userSignIn} />
+                    <Button title="Login" color="#0e6cff" onPress={()=>{console.log(userSignIn())}} />
                 </View>
             </ImageBackground>
         </View>
