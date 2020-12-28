@@ -32,6 +32,7 @@ const LoginOrRegister = () => {
                 component={DisplayOptions}
                 options={
                     {
+                        headerLeft: null,
                         headerStyle: {
                             backgroundColor:'#211F47'
                         },

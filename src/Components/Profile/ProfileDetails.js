@@ -3,26 +3,31 @@ import { View, Text, ScrollView, FlatList, Image } from 'react-native';
 import { Avatar, Title, Subheading, Paragraph, Caption, Button } from 'react-native-paper';
 import Firebase from '../../../firebaseConfig';
 import {DetailStyles} from '../../Styles'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-const ProfileDetails = ({setUserLoginState}) => {
+const ProfileDetails = ({navigation}) => {
     let productImagesArray = [
         {
+            key:1,
             image: require("../../../assets/SampleProducts/macbook_pro.jpg")
         },
         {
+            key: 2,
             image: require("../../../assets/SampleProducts/shirt.jpg")
         },
         {
+            key: 3,
             image: require("../../../assets/SampleProducts/red_hoodie.jpg")
         },
         {
+            key: 4,
             image: require("../../../assets/SampleProducts/marshmallow_hoodie.jpg")
         }
     ]
        
     const signOutUser = () => {
         Firebase.auth().signOut().then((res) => {
-            setUserLoginState(null);
+            navigation.navigate("LoginOrSignup")
         })
     }
     return(
@@ -42,17 +47,18 @@ const ProfileDetails = ({setUserLoginState}) => {
                 <Button icon="account-edit" style={DetailStyles.editprofile}>Edit profile</Button>
             </View>
             <Text style={DetailStyles.productGalleryTopic}>PRODUCT GALLERY</Text>
-            <View style={DetailStyles.gallery}>
+            <SafeAreaView style={DetailStyles.gallery}>
                 <FlatList
                     numColumns={2} 
                     style={DetailStyles.galleryList} 
                     data={productImagesArray} 
+                    
                     renderItem={({item})=>{
-                        return <Image source={item.image} style={DetailStyles.listImage} />
+                        return <Image source={item.image} style={DetailStyles.listImage} key={item.key} />
                     }}
                 />
                 <Button icon="plus" onPress={()=>console.log("Add product pressed")}>Add product</Button>
-            </View>
+            </SafeAreaView>
 
             <Button icon="exit-to-app" onPress={signOutUser} style={DetailStyles.signout} >SIGN OUT</Button>
             

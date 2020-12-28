@@ -99,6 +99,7 @@ export const DetailStyles = StyleSheet.create({
         color: "#211F47"
     },
     gallery: {
+        flex:1,
         borderTopWidth: 1,
         borderTopColor: "#D3D3D3",
 
