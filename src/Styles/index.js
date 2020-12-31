@@ -3,4 +3,4 @@
 
 
 export {HomeStyle} from './HomeStyles'
-export {Loginstyles, MainStyles, DetailStyles,RegisterStyles} from './ProfileStyles'
+export {Loginstyles, MainStyles, DetailStyles,RegisterStyles,containerStyle} from './ProfileStyles'

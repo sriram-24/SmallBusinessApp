@@ -5,7 +5,13 @@ import Register from './Register';
 import Login from './Login';
 import {MainStyles} from '../../Styles'
 import ProfileDetails from './ProfileDetails';
-
+import { EditProfile } from './EditProfile';
+/* 
+* Login or register page
+* Displays options to choose between login or register
+* Navigate between the screen using react-navigation/stack
+* After sucessfull login or register navigate to profile screen 
+*/
 function DisplayOptions({navigation}){
     return(
         <View style={MainStyles.container}>

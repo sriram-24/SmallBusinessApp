@@ -1,0 +1,1 @@
+export { productImagesArray } from './ProductImages'

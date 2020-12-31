@@ -159,3 +159,8 @@ export const RegisterStyles = StyleSheet.create({
         top: 10
     }
 });
+
+export const containerStyle = {
+     backgroundColor: 'white',
+      padding: 20 
+    };
