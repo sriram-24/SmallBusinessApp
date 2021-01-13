@@ -14,3 +14,4 @@ web-build/
 
 /firebaseConfig.js
 /debug.log
+.vscode/
