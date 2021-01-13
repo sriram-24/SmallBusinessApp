@@ -1,16 +1,27 @@
 import React from 'react'
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import Firebase from '../../../firebaseConfig'
+import LottieView from "lottie-react-native";
 export default class Loading extends React.Component {
     componentDidMount() {
+        this.animation.play();
         Firebase.auth().onAuthStateChanged(user => {
-            this.props.navigation.navigate(user ? 'ProfileDetails' : 'LoginOrSignup')
+            this.props.navigation.replace(user ? 'ProfileDetails' : 'LoginOrSignup')
         })
     }
+    
     render() {
         return (
             <View style={styles.container}>
-                <ActivityIndicator size="large" visible={true} color="#000" />
+                <LottieView
+                    ref={animation=>{this.animation = animation}}
+                    style={{
+                        width: 400,
+                        height: 400,
+                        backgroundColor: '#eee',
+                    }}
+                    source={require('~Shared/lottie_loading.json')}
+                />
                 <Text>Loading</Text>
             </View>
         )

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Firebase from '../../../firebaseConfig';
-import LoginOrRegister from './LoginOrRegister';
 import ProfileDetails from './ProfileDetails';
 import { createStackNavigator } from '@react-navigation/stack';
 import Loading from './Loading';
+import DisplayOptions from './LoginOrRegister';
 
 
 export const Profile = () => {
@@ -16,13 +15,13 @@ export const Profile = () => {
                 options={
                     {
                         headerLeft:null,
-                        
+                        gestureEnabled:false
                     }
                 }
             />
             <stack.Screen
                 name="LoginOrSignup"
-                component={LoginOrRegister}
+                component={DisplayOptions}
                 options={
                     {
                         headerStyle: {
@@ -40,28 +39,13 @@ export const Profile = () => {
                         headerStyle: {
                             backgroundColor: '#211F47'
                         },
-                        headerTintColor: '#fff'
+                        headerTintColor: '#fff',
+                        headerLeft:null,
+                        gestureEnabled:false
                     }
                 }
             />
         </stack.Navigator>
     );
-//     const [userLoginState, setUserLoginState] = useState(null);
-//     useEffect(()=>{
-//         const isUserLoggedIn = Firebase.auth().currentUser;
-//         setUserLoginState(isUserLoggedIn);
-//         console.log(isUserLoggedIn);
-//     })
-
-//     if(userLoginState!==null){
-//         return(
-//             <ProfileDetails userLoginState={userLoginState} setUserLoginState={setUserLoginState} />
-//         )
-//     }
-//     else{
-//         return(
-//             <LoginOrRegister />
-//         )
-//     }
  }
 

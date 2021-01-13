@@ -29,61 +29,61 @@ function DisplayOptions({navigation}){
     );
 }
 
-const LoginOrRegister = () => {
-    const Stack = createStackNavigator();
-    return(
-        <Stack.Navigator initialRouteName={DisplayOptions} >
-            <Stack.Screen
-                name="Authentication"
-                component={DisplayOptions}
-                options={
-                    {
-                        headerLeft: null,
-                        headerStyle: {
-                            backgroundColor:'#211F47'
-                        },
-                        headerTintColor:'#fff'
-                    }
-                } 
-            />
-            <Stack.Screen
-                name="Register"
-                component={Register}
-                options={
-                    {
-                        headerStyle: {
-                            backgroundColor: '#211F47'
-                        },
-                        headerTintColor: '#fff'
-                    }
-                } 
-            />
-            <Stack.Screen
-                name="Login"
-                component={Login}
-                options={
-                    {
-                        headerStyle: {
-                            backgroundColor: '#211F47'
-                        },
-                        headerTintColor: '#fff'
-                    }
-                } 
-            />
-            <Stack.Screen
-                name="Profile"
-                component={ProfileDetails}
-                options={
-                    {
-                        headerStyle: {
-                            backgroundColor: '#211F47'
-                        },
-                        headerTintColor: '#fff'
-                    }
-                }
-            />
-        </Stack.Navigator>
-    );
-}
+// const LoginOrRegister = () => {
+//     const Stack = createStackNavigator();
+//     return(
+//         <Stack.Navigator initialRouteName={DisplayOptions} >
+//             <Stack.Screen
+//                 name="Authentication"
+//                 component={DisplayOptions}
+//                 options={
+//                     {
+//                         headerLeft: null,
+//                         headerStyle: {
+//                             backgroundColor:'#211F47'
+//                         },
+//                         headerTintColor:'#fff'
+//                     }
+//                 } 
+//             />
+//             <Stack.Screen
+//                 name="Register"
+//                 component={Register}
+//                 options={
+//                     {
+//                         headerStyle: {
+//                             backgroundColor: '#211F47'
+//                         },
+//                         headerTintColor: '#fff'
+//                     }
+//                 } 
+//             />
+//             <Stack.Screen
+//                 name="Login"
+//                 component={Login}
+//                 options={
+//                     {
+//                         headerStyle: {
+//                             backgroundColor: '#211F47'
+//                         },
+//                         headerTintColor: '#fff'
+//                     }
+//                 } 
+//             />
+//             <Stack.Screen
+//                 name="Profile"
+//                 component={ProfileDetails}
+//                 options={
+//                     {
+//                         headerStyle: {
+//                             backgroundColor: '#211F47'
+//                         },
+//                         headerTintColor: '#fff',
+//                     }
+//                 }
+//             />
+//         </Stack.Navigator>
+//     );
+// }
 
-export default LoginOrRegister;
+export default DisplayOptions;

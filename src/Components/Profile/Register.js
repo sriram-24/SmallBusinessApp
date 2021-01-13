@@ -10,6 +10,7 @@ const CreateDocumentForUser = (userCredentials) => {
         email: userCredentials.email,
         phoneNumber: userCredentials.phoneNumber,
         photoUrl: userCredentials.photoURL,
+        storeId:null
     }
 
     const documentStatus = userDocument.set(userData);

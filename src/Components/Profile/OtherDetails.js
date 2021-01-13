@@ -3,8 +3,9 @@ import { View, Text, StyleSheet } from 'react-native'
 import { Subheading, Button } from 'react-native-paper'
 import { Feather, FontAwesome } from '@expo/vector-icons';
 
+
 const OtherDetails =({navigation,others}) => {
-   
+    console.log(others);
     return (
         <View style={styles.body}>
             <View style={styles.details}>
@@ -17,8 +18,6 @@ const OtherDetails =({navigation,others}) => {
                     <Text>{others.address}</Text>
                 </View>
             </View>
-            <Button mode="contained" style={styles.button} color="#211F47" onPress={() => { navigation.navigate("Cart") }} >My cart</Button>
-            <Button mode="contained" style={styles.button} color="#211F47" onPress={() => { navigation.navigate("Store") }}>My Store</Button>
         </View>
     )
 }
@@ -30,7 +29,7 @@ const styles = StyleSheet.create({
         fontFamily: "Roboto"
     },
     header: {
-        backgroundColor: "#DCDCDC",
+        backgroundColor: "#00C899",
         display: "flex",
         alignItems: "center"
     },
@@ -46,7 +45,8 @@ const styles = StyleSheet.create({
         margin: 30
     },
     body: {
-        paddingTop: 10
+        paddingTop: 10,
+        
     },
     button: {
         marginLeft: 80,
