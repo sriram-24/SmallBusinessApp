@@ -2,12 +2,22 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import Firebase from '../../../firebaseConfig'
 import LottieView from "lottie-react-native";
+import { CurrentUser } from '~Functions';
+
+/*
+ * returns Loading screen animation from lottie-react-native
+ * lottie-react-native - animation library to display animations from after effects  @reference: https://airbnb.io/lottie/#/
+ * 
+ */
+
 export default class Loading extends React.Component {
-    componentDidMount() {
+     componentDidMount () {
         this.animation.play();
-        Firebase.auth().onAuthStateChanged(user => {
+        
+        Firebase.auth().onAuthStateChanged((user) => {
             this.props.navigation.replace(user ? 'ProfileDetails' : 'LoginOrSignup')
         })
+       
     }
     
     render() {

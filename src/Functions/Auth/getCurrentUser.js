@@ -1,9 +1,8 @@
-async function getData() {
-    let uid;
-    const user = await Firebase.auth().currentUser;
-    if (user != null) {
-        uid = user.uid;
-    }
-    return uid;
+import Firebase from "../../../firebaseConfig"
+
+export const CurrentUser = () =>{
+    Firebase.auth().onAuthStateChanged((user) =>{
+        return user.uid
+    })
 }
-export default getData
+

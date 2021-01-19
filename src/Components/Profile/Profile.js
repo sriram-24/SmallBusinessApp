@@ -3,7 +3,16 @@ import ProfileDetails from './ProfileDetails';
 import { createStackNavigator } from '@react-navigation/stack';
 import Loading from './Loading';
 import DisplayOptions from './LoginOrRegister';
+import Login from './Login';
+import Register from './Register';
 
+/*
+ *  Stack Navigator is used for profile navigation from @react-navigation/stack
+ *  Loading - initial route to Loading screen display animation untl user profile is loaded @location: loading.js
+ *  LoginOrSignup - displays the login or register options to the user @location: loginOrRegister.js
+ *  ProfileDetails - sucessfull login or loading profile displays profile details screen @location: ProfileDetails.js
+ *  
+ */
 
 export const Profile = () => {
     const stack = createStackNavigator();
@@ -45,7 +54,27 @@ export const Profile = () => {
                     }
                 }
             />
+            <stack.Screen
+                name="Login"
+                component={Login}
+                options={
+                    {
+                        headerLeft: null,
+                        gestureEnabled: false
+                    }
+                }
+            />
+            <stack.Screen
+                name="Register"
+                component={Register}
+                options={
+                    {
+                        headerLeft: null,
+                        gestureEnabled: false
+                    }
+                    
+                }
+            />
         </stack.Navigator>
     );
  }
-
